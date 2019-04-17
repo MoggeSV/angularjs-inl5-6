@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="angularApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prototype inlämningsuppgift 2</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+   
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div ng-include="userComponent"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <!-- Header -->
+    <header>
+        <!-- Top Menu -->
+        <div id="topmenu">
+            <div class="topmenuContainer">
+                <div class="row">
+                    <div id="socialMedia" class="col-md-3">
+                        <a href="#" class="socialMediaButtons"><i class="fab fa-facebook-f sLink"></i></a>
+                        <a href="#" class="socialMediaButtons"><i class="fab fa-twitter sLink"></i></a>
+                        <a href="#" class="socialMediaButtons"><i class="fab fa-behance sLink"></i></a>
+                        <a href="#" class="socialMediaButtons"><i class="fab fa-pinterest sLink"></i></a>
+                        <a href="#" class="socialMediaButtons"><i class="fab fa-youtube sLink"></i></a>
+
+
+                    </div>
+                    <div id="faq" class="col-md-1"><a href="#" class="socialMediaButtons">FAQ</a></div>
+                    <div id="terms" class="col-md-7"><a href="#" class="socialMediaButtons">TERMS</a></div>
+                    <div id="emailLink" class="col-md-1">
+                        <a href="mailto:info@webmail.com" class="socialMediaButtons"><i class="far fa-envelope"><span
+                                    class="pl-2">info@webmail.com</span></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- logo, navbar -->
+        <div id="menu">
+            <div class="topmenuContainer">
+                <div class="row menuRow">
+                    <img src="images/logotype_transparent.png" class="col-md-2">
+
+
+                    <div class="dropdown col-md-1 pt-3">
+                        <button class="btn languageButton" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            EN <i class="fas fa-angle-down"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">SWE</a>
+                            <a class="dropdown-item" href="#">NOR</a>
+                            <a class="dropdown-item" href="#">DAN</a>
+                        </div>
+                    </div>
+
+                    <div class="phoneNumber col-md-2">
+                        +90878 87 878 7
+                    </div>
+
+                    <div class="menuOptions col-md-5 pt-3 pl-5 mt-1">
+                        <a href="#" class="sLink">Home</a>
+                        <a href="#" class="sLink">About</a>
+                        <a href="#" class="sLink">Services</a>
+                        <a href="#" class="sLink">Pages</a>
+                        <a href="#" class="sLink">News</a>
+                        <a href="#" class="sLink">Contact</a>
+                        <button type="button" class="btn btn-link sLink" data-toggle="modal" data-target=".bd-example-modal-lg">Login</button>
+
+                    </div>
+
+                    <div class="quote col-md-2">
+                        GET A QUOTE
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+   
+    <div data-ng-view></div>
+   
+   
+    <!-- FOOTER -->
+
+    <footer>
+        <div id="footer">
+            <div class="container footer-container">
+                <div class="row justify-content-center">
+                    <!-- first card -->
+                    <div class="card footer-card col">
+                        <img src="images/logotype_transparent_white.png" class="card-img-top card-background">
+                        <div class="card-body card-background pt-3 pb-3 pl-0">
+                            <p class="card-text footer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Mollitia fuga
+                                distinctio sint officiis dolor, labore et consequatur, rem eum porro neque pariatur
+                                ducimus obcaecati ullam placeat quaerat vero itaque necessitatibus quidem eveniet
+                                deserunt. Eaque, corporis.</p>
+                            <div class="row justify-content-center">
+                                <div class="facebook footer-button"><a href="#" class="btn"><i
+                                            class="fab fa-facebook-f"></i></a></div>
+                                <div class="facebook footer-button twitter"><a href="#" class="btn"><i
+                                            class="fab fa-twitter"></i></a></div>
+                                <div class="facebook footer-button"><a href="#" class="btn"><i
+                                            class="fab fa-behance"></i></a></div>
+                                <div class="facebook footer-button"><a href="#" class="btn"><i
+                                            class="fab fa-youtube"></i></a></div>
+                                <div class="facebook footer-button"><a href="#" class="btn"><i
+                                            class="fab fa-pinterest"></i></i></a></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- second card -->
+
+                    <div class="card footer-card second-card card-background col">
+                        <div class="card-body">
+                            <div class="card-title moreLinks">
+                                <p>More Links<span class="dot">.</span></p>
+                            </div>
+                            <div class="row">
+                                <div class="firstColumn">
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Paid SEO</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Digital Marketing</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Strategy Planning</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Offline SEO</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Page RankUp</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">User Panel</p>
+                                    </a>
+                                </div>
+                                <div class="secondColumn ml-5">
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Services</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Our Team</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">News</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Shop</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Contact Us</p>
+                                    </a>
+                                    <a href="#" class="footer-link">
+                                        <p class="footer-text">Book Appointment</p>
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- third card -->
+
+                    <div class="card footer-card col">
+                        <div class="card-body card-background">
+                            <div class="card-title moreLinks">
+                                <p>News Feeds<span class="dot">.</span></p>
+                            </div>
+                            <div class="card mb-1 footer-card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4 card-background">
+                                        <img src="images/television-png-tv-24.png" class="card-img pt-4" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body card-background">
+
+                                            <p class="card-text blog-text">Lorem ipsum dolor sit, amet consectetur
+                                                adipisicing.</p>
+                                            <p class="card-text"><small class="text-muted">14 july 2019</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-1 footer-card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4 card-background">
+                                        <img src="images/television-png-tv-24.png" class="card-img pt-4" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body card-background">
+
+                                            <p class="card-text blog-text">Lorem ipsum dolor sit, amet consectetur
+                                                adipisicing.</p>
+                                            <p class="card-text"><small class="text-muted">14 july 2019</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-1 footer-card">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4 card-background">
+                                        <img src="images/television-png-tv-24.png" class="card-img pt-4" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body card-background">
+
+                                            <p class="card-text blog-text">Lorem ipsum dolor sit, amet consectetur
+                                                adipisicing.</p>
+                                            <p class="card-text"><small class="text-muted">14 july 2019</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="copyright col row">
+                        <p class="footer-text">Copyright By <p class="orangeText">&copy;NilArtStudio - </p>
+                            <p class="footer-text pl-1"> 2019</p>
+                        </p>
+                    </div>
+
+
+                    <button class="backToTop col btn">
+                        <a href="#">
+                            <p class="backToTopText">BACK TO TOP</p>
+                        </a>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-cookies.min.js"></script>
+    <script src="app.js"></script>
+
+    <script src="services/auth.service.js"></script>
+    <script src="services/dialog.service.js"></script>
+    <script src="services/user.service.js"></script>
+    
+    
+    
+
+</body>
+
+</html>

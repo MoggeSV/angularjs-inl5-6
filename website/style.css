@@ -1,0 +1,432 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    padding:0;
+    margin:0; 
+    
+}
+
+#topmenu {
+    height: 40px;
+    background: #0e1b33;
+    padding-top: 10px;
+    align-content: center;
+    color: #ffffff;
+}
+
+.socialMediaButtons{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.socialMediaButtons:hover{
+    color: #ff8155;
+    text-decoration: none;
+}
+
+.topmenuContainer {
+    margin: 0 5%;
+}
+
+
+
+#menu {
+    background: #ffffff;
+    height: 140px;
+}
+
+#banner {
+    background-image: linear-gradient(to right, #5500be, #c970a6);
+    height: 400px;
+    text-align: center;
+    padding: 70px;
+    color: #ffffff;
+}
+
+#topBannerText {
+    font-size: 18pt;
+    letter-spacing: 2px;
+    padding: 0;
+    margin: 0;
+}
+
+#middleBannerText {
+    font-size: 80pt;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+#footer {
+    background: #0b1525;
+    height: 610px;
+}
+
+.sLink {
+    padding: 0 10px;
+}
+
+.menuRow {
+    margin-top: 70px;
+}
+
+.languageButton {
+    border: 2px solid #e5e7e9;
+    color: #e5e7e9;
+    font-size: 14pt;
+    font-weight: 800;
+    border-radius: 20px;
+}
+
+.phoneNumber {
+    color: #ffffff;
+    background-color: #ff8155;
+    font-size: 14pt;
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 18px;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.quote {
+    color: #ffffff;
+    background-color: #ff8155;
+    font-size: 14pt;
+    height: 70px;
+    width: 200px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.menuOptions a {
+    color: #000000;
+    font-size: 16pt;
+}
+
+#bannerLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bannerLinks p {
+    padding: 18px 15px 0 15px;
+}
+
+#bannerLinks a {
+    color: #ffffff;
+}
+
+.shippingTags {
+    border: 2px solid #e5e7e9;
+    color: #999ea5;
+    border-radius: 50px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.shippingRow{
+width: 90%;
+height: 80%;
+
+}
+
+.shipping-img {
+    width: 40%;
+    height: 40%;
+}
+
+.img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shipCard {
+    border: none;
+    position: relative;
+}
+
+.ship-title {
+    color: #000000;
+    font-weight: 800;
+    font-size: 1em;
+}
+
+
+/*sort & search*/
+
+.gridListButton {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.gridButton {
+    background-color: #f9f9ff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.gridButton a, .gridButtonActive a {
+    color:#fff !important;
+}
+
+.gridButton i {
+    font-size: 30px;
+    color: #999ea5;
+}
+
+.gridButtonActive {
+    background-color: #ff8155;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+
+
+.listButton i {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+#numberShowing {
+    font-size: 0.9em;
+    color: #788892;
+    padding-top:30px;
+}
+
+.sortButton {
+    border: 2px solid #e5e7e9;
+    color: #788892;
+    font-size: 12pt;
+    font-weight: 800;
+    border-radius: 20px;
+}
+
+.dropdownButton{
+    padding-top:20px;
+}
+
+#searchInput {
+    border: none;
+}
+
+.searchBorderBox {
+    width: 250px;
+    border: 2px solid #e5e7e9;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBox {
+    width: 90%;
+}
+
+.mag-glass {
+    background-color: #ffffff;
+    border: none;
+}
+
+.sortSearch {
+    margin-top: 100px;
+}
+
+/* Cards */
+
+.cards-container{
+    margin-top: 100px;
+}
+.yellow {
+    color: #ffba00;
+}
+
+.card-size {
+    max-width: 340px;
+    max-height: 400px;
+    min-width: 340px;
+    min-height: 400px;
+}
+
+.image-size{
+    max-width: 340px;
+    max-height: 300px;
+}
+
+.img-size-small{
+    max-width: 250px;
+    max-width: 200px;
+}
+
+
+.card-text-color {
+    color: #ff8155;
+}
+
+/*Scrolling buttons*/
+.scrollButtonRow{
+    text-align: center;
+}
+
+.scrollButton{
+width: 70px;
+height: 70px;
+border: none;
+border-radius: 50%;
+}
+
+.orange{
+background: #ff8155;
+color: #ffffff;
+}
+
+.grey{
+    background: #f8f8f8;
+    color: #9fa7c5;
+}
+
+
+
+
+/*footer*/
+
+.footer-container{
+    padding-top: 100px;
+}
+
+.footer-card{
+    border: none;
+    background: #0b1525;
+}
+.card-background{
+    background: #0b1525;
+}
+
+.footer-button{
+    margin-right: 6px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+}
+.second-card{
+    padding-left: 60px;
+    
+}
+
+
+.twitter{
+    color: #ffffff;
+    background: #ff8155;
+}
+
+.footer-text{
+    color: #a9b2c0;
+}
+
+.moreLinks{
+    color:#ffffff;
+    font-weight: 900;
+    font-size: 1.3em;
+}
+
+.dot{
+    color: #ff8155;
+    font-weight: 900; 
+    font-size: 1.3em;  
+}
+
+.footer-link{
+    text-decoration: none;
+}
+
+.footer-link:hover{
+    text-decoration: none;
+}
+
+.blog-text{
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.orangeText{
+    color: #ff8155;
+}
+
+.backToTop{
+background: #15ee90;
+max-width: 185px;
+max-height: 50px;
+border-radius: 25px;
+display: flex;
+justify-content: center;
+text-align: center;
+}
+
+.backToTopText{
+    color: #fff;
+    padding-top: 8px;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.backToTop a{
+    text-decoration: none;
+}
+
+.stars-outer{
+    position: relative;
+    display: inline-block;
+}
+
+.stars-inner{
+    position: absolute;
+    top:0;
+    left:0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-outer::before{
+    content:"\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    color: #ccc;
+    font-weight: 900;
+}
+
+.stars-inner::before{
+    content:"\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    color: #f8ce0b;
+    font-weight: 900;
+}

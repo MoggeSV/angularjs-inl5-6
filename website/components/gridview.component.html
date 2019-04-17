@@ -1,0 +1,21 @@
+gridview
+
+<div>
+    <div class="row">
+        <div class="card m-3 card-size col-md-4 shadow" data-ng-repeat="product in products | filter: searchText | orderBy: sortColumn | limitTo: rowLimit">
+            <img ng-src="{{product.image}}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title card-title-size">{{ product.name }}</h5>
+                <div class="row">
+                    <p class="card-text card-text-color col-md-5">{{product.price | currency}}</p>
+
+                    <p class="card-text card-text-size col-md-3">
+                        <div class="stars-outer">
+                            <div class="stars-inner" ng-style="{'width': rating(product.rating)}"></div>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

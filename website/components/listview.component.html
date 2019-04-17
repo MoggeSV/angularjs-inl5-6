@@ -1,0 +1,25 @@
+listview
+<div>
+    <div ng-repeat="product in products | filter: searchText | orderBy: sortColumn | limitTo: rowLimit">
+            <div class="card mb-3">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img ng-src="{{product.image}}" class="card-img img-size-small">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">{{product.name}}</h5>
+                          <div class="row">
+                                <p class="card-text card-text-color col-md-6">{{product.price | currency}}</p>
+                                <p class="card-text card-text-size col-md-6">
+                                    <div class="stars-outer">
+                                        <div class="stars-inner" ng-style="{'width': rating(product.rating)}"></div>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    </div>
+</div>

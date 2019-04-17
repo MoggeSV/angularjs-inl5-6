@@ -1,0 +1,129 @@
+ <!-- Main -->
+ <main>
+
+    <!-- Banner -->
+    <div id="banner">
+        <p id="topBannerText">DIGITAL MARKETING</p>
+        <p id="middleBannerText">Product Store</p>
+        <div id="bannerLinks">
+            <a href="#">Home </a>
+            <p> | </p>
+            <a href="#"> Shop</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="content">
+        <div class="container">
+
+            <!-- Shipping tags -->
+            <div class="shippingTags">
+                <div class="row shippingRow justify-content-center">
+                    <div class="card mb-3 col-md-3 shipCard">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 img-box">
+                                <img src="images/truck.png" class="card-img shipping-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title ship-title">Free Shipping</h5>
+                                    <p class="card-text">Orders over $100</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3 col-md-3 shipCard">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 img-box">
+                                <img src="images/clock.png" class="card-img shipping-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title ship-title">Free Return</h5>
+                                    <p class="card-text">In 30 days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3 col-md-3 shipCard">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 img-box">
+                                <img src="images/lock.png" class="card-img shipping-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title ship-title">100% secure</h5>
+                                    <p class="card-text">Shipping</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3 col-md-3 shipCard">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 img-box">
+                                <img src="images/pricetag.png" class="card-img shipping-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title ship-title">Best Price</h5>
+                                    <p class="card-text">Granted</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- filter -->
+            <div ng-include="filterComponent"></div>
+
+
+
+
+
+            <!-- Cards -->
+
+            <div class="cards-container">
+                <div class="row mt-5">
+                    
+
+
+                    <div ng-include="productComponent"></div>
+
+
+
+
+
+                </div>
+            </div>
+
+            <!-- scrolling buttons -->
+            <div class="row justify-content-center scrollButtonRow mt-5 mb-5">
+                <div class="col-md-1 m-1"><button class="scrollButton grey"><i
+                            class="fas fa-arrow-left arrowColor"></i></button></div>
+                <div class="col-md-1 m-1"><button class="scrollButton grey">01</button></div>
+                <div class="col-md-1 m-1"><button class="scrollButton orange">02</button></div>
+                <div class="col-md-1 m-1"><button class="scrollButton grey">...</button></div>
+                <div class="col-md-1 m-1"><button class="scrollButton grey">04</button></div>
+                <div class="col-md-1 m-1"><button class="scrollButton grey"><i
+                            class="fas fa-arrow-right arrowColor"></i></button></div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</main>
