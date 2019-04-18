@@ -26,6 +26,7 @@
         }        
 
         function Create(user) {
+            console.log(user);
             return $http
                 .post("http://localhost:3001/api/users/register", user)
                 .then(handleResponse, handleResponse)

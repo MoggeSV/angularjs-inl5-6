@@ -5,7 +5,7 @@
         .factory("authService", authService);
 
     authService.$inject = ['$http', "$cookies", "$rootScope", "$timeout", "userService"];
-    function authService($http, $cookies, $rootScope, $timeout, userService) {
+    function authService($http, $cookies, $rootScope) {
         var service = {}
 
         function handleResponse(res) {

@@ -9,6 +9,18 @@ var app = angular
             controllerAs: "vm"
         })
 
+        .when("/login", {
+            controller: "homeController",
+            templateUrl: "components/login.component.html",
+            controllerAs: "vm"
+        })
+
+        .when("/register", {
+            controller: "homeController",
+            templateUrl: "components/register.component.html",
+            controllerAs: "vm"
+        })
+
         .otherwise({ redirectTo: "/" });
     
     })
@@ -16,43 +28,49 @@ var app = angular
     .controller("homeController", function(userService, $rootScope, $http, $location, authService, dialogService) {
 
         var vm = this;
-        vm.user = null;
-        vm.allUsers = [];
+
+        function login() {
+            vm.dataLoading = true;
+
+            authService.Login(vm.email, vm.password) 
+                .then(function (res) {
+                   
+                    if(res.success) {
+                        authService.SetCredentials(res.id, res.token);
+                        $location.path("/");
+                    } else {
+                        dialogService.Error(res.message);
+                        vm.dataLoading = false;
+                    }
+                })               
+        }
+
+        function register () {
+            vm.dataLoading = true;
+            userService.Create(vm.user)
+                .then(function (res) {
+                    if(res.success) {
+                        dialogService.Success("Registration was successful", true);
+                        $location.path("/login");
+                    } else {
+                        dialogService.Error(res.message);
+                        vm.dataLoading = false;
+                    }
+                })
+        }
+
+
+        (function initController() {
+            authService.ClearCredentials();
+        })();
+
+        vm.login = login;
+        vm.register = register;
+
+
 
         $http.get("http://localhost:3001/api/products").then((res) => $rootScope.products = res.data);
 
-
-
-
-        function getCurrentUser(id) {
-            userService.GetUser(id)
-                .then(function (user) {
-                    vm.user = user;             
-                })      
-        }
-
-        function getAllUsers() {
-            userService.GetUsers()
-                .then(function (users) {
-                    vm.allUsers = users
-                })
-        }
-
-        function deleteUser(id) {
-            userService.Delete(id)
-                .then(function () {
-                    getAllUsers();
-                })
-        }
-
-        function initController() {
-            getCurrentUser($rootScope.globals.currentUser.id);
-            getAllUsers();
-        }
-
-
-        //initController();
-        vm.deleteUser = deleteUser;
 
 
         //Sets grid or list active button
@@ -96,43 +114,6 @@ var app = angular
         }
 
 
-        
-        vm.login = login;
-
-        function login() {
-            console.log("login start ok");
-            vm.dataLoading = true;
-
-            authService.Login(vm.email, vm.password) 
-                .then(function (res) {
-                   
-                    if(res.success) {
-                        authService.SetCredentials(res.id, res.token);
-                        $location.path("/home");
-                    } else {
-                        dialogService.Error(res.message);
-                        vm.dataLoading = false;
-                    }
-                })               
-        }
-
-        function initController() {
-            authService.ClearCredentials();
-        }
-
-        vm.register = function () {
-            vm.dataLoading = true;
-            userService.Create(vm.user)
-                .then(function (res) {
-                    if(res.success) {
-                        dialogService.Success("Registration was successful", true);
-                        $location.path("/login");
-                    } else {
-                        dialogService.Error(res.message);
-                        vm.dataLoading = false;
-                    }
-                })
-        }
 
     })
     

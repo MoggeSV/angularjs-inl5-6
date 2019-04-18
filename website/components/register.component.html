@@ -1,53 +1,55 @@
 <div class="container mb-5 mt-2">
 
-    <div ng-class="{ 'alert': dialog, 'alert-success': dialog.type === 'success', 'alert-danger': dialog.type === 'error' }"
-        ng-if="dialog" ng-bind="dialog.message">
+        <div ng-class="{ 'alert': dialog, 'alert-success': dialog.type === 'success', 'alert-danger': dialog.type === 'error' }"
+            ng-if="dialog" ng-bind="dialog.message">
+        </div>
+    
+        <div class="col-md-6-col-md-offset-3">
+            <h2>Register</h2>
+            <form name="form" ng-submit="vm.register()" role="form">
+                <div class="form-group" ng-class="{'has-error': form.firstname.$dirty && form.firstname.$error.required }">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" id="firstname" class="form-control" ng-model="vm.user.firstname"
+                        required>
+                    <span ng-show="form.firstname.$dirty && form.firstname.$error.required" class="help-block">First Name is
+                        required</span>
+                </div>
+    
+                <div class="form-group" ng-class="{'has-error': form.lastname.$dirty && form.lastname.$error.required }">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" id="lastname" class="form-control" ng-model="vm.user.lastname"
+                        required>
+                    <span ng-show="form.lastname.$dirty && form.lastname.$error.required" class="help-block">Last Name is
+                        required</span>
+                </div>
+    
+                <div class="form-group" ng-class="{'has-error': form.email.$dirty && form.email.$error.required }">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control" ng-model="vm.user.email" required>
+                    <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">An email address is
+                        required</span>
+                </div>
+    
+                <div class="form-group" ng-class="{'has-error': form.password.$dirty && form.password.$error.required }">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password"
+                        required>
+                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is
+                        required</span>
+                </div>
+    
+                <div class="form-actions">
+                    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading"
+                        class="btn btn-primary">Register</button>
+                    <img ng-if="vm.dataLoading"
+                        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                        alt="">
+
+                        <a href="#!login" class="btn btn-secondary">Login</a>
+                   <!--  <button class="btn btn-secondary" ng-click="changeUserComponent('login.component.html')">Login</button> -->
+                </div>
+            </form>
+        </div>
+    
+    
     </div>
-
-    <div class="col-md-6-col-md-offset-3">
-        <h2>Register</h2>
-        <form name="form" ng-submit="vm.register()" role="form">
-            <div class="form-group" ng-class="{'has-error': form.firstname.$dirty && form.firstname.$error.required }">
-                <label for="firstname">First Name</label>
-                <input type="text" name="firstname" id="firstname" class="form-control" ng-model="vm.user.firstname"
-                    required>
-                <span ng-show="form.firstname.$dirty && form.firstname.$error.required" class="help-block">First Name is
-                    required</span>
-            </div>
-
-            <div class="form-group" ng-class="{'has-error': form.lastname.$dirty && form.lastname.$error.required }">
-                <label for="lastname">Last Name</label>
-                <input type="text" name="lastname" id="lastname" class="form-control" ng-model="vm.user.lastname"
-                    required>
-                <span ng-show="form.lastname.$dirty && form.lastname.$error.required" class="help-block">Last Name is
-                    required</span>
-            </div>
-
-            <div class="form-group" ng-class="{'has-error': form.email.$dirty && form.email.$error.required }">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" class="form-control" ng-model="vm.user.email" required>
-                <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">An email address is
-                    required</span>
-            </div>
-
-            <div class="form-group" ng-class="{'has-error': form.password.$dirty && form.password.$error.required }">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password"
-                    required>
-                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is
-                    required</span>
-            </div>
-
-            <div class="form-actions">
-                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading"
-                    class="btn btn-primary">Register</button>
-                <img ng-if="vm.dataLoading"
-                    src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                    alt="">
-                <button class="btn btn-secondary" ng-click="changeUserComponent('login.component.html')">Login</button>
-            </div>
-        </form>
-    </div>
-
-
-</div>
