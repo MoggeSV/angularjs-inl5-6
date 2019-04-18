@@ -5,8 +5,8 @@
         <div class="dropdown-menu dropdown-menu-right">
             
             <table class="" style="width:500px;">
-                <tr dir-paginate="product in products | orderBy:sortProducts.value | itemsPerPage: rowLimits.value">
-                    <td class="p-2"><img src="https://via.placeholder.com/{{ product.thumbnail }}" alt="{{ product.thumbnail }}"></td>
+                <tr ng-repeat="product in cart">
+                    
                     <td>
                         {{ product.name }} <br>
                         <div class="stars-outer">
@@ -16,17 +16,17 @@
                     <td>
                         <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-link" style="font-size:18px; color:black; text-decoration: none;">+</button>
-                                <p class="px-1 pt-3">1</p>
-                                <button type="button" class="btn btn-link" style="font-size:18px; color:black; text-decoration: none;">-</button>
+                                <button type="button" class="btn btn-link" ng-click="addingToQuantity(product)" style="font-size:18px; color:black; text-decoration: none;">+</button>
+                                <p class="px-1 pt-3">{{product.quantity}}</p>
+                                <button type="button" class="btn btn-link" ng-click="subtractFromQuantity(product)" style="font-size:18px; color:black; text-decoration: none;">-</button>
                             </div>
                         </div>
                     </td>
                     <td>
-                        {{ product.price }} kr
+                        {{ product.price * product.quantity | currency }}
                     </td>
                     <td>
-                        <button type="button" class="btn btn-link"><i class="fas fa-trash"></i></button>
+                        <button type="button" class="btn btn-link" ng-click="removeItem()"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
             </table>

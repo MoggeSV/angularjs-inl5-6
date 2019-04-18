@@ -33,7 +33,7 @@
             cookieExp.setDate(cookieExp.getDate() + 7);
 
             $cookies.putObject("globals", $rootScope.globals, { expires: cookieExp });
-
+            console.log($rootScope.globals);
         }
 
         function ClearCredentials() {
