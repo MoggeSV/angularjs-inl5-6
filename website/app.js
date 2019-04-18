@@ -13,7 +13,7 @@ var app = angular
     
     })
 
-    .controller("homeController", function(userService, $rootScope, $http) {
+    .controller("homeController", function(userService, $rootScope, $http, $location, authService, dialogService) {
 
         var vm = this;
         vm.user = null;
@@ -55,9 +55,6 @@ var app = angular
         vm.deleteUser = deleteUser;
 
 
-        //Sets row limits
-        $rootScope.rowLimit = 5;
-
         //Sets grid or list active button
         $rootScope.cardActive = true;
 
@@ -67,29 +64,78 @@ var app = angular
             return `${Math.round(((input / 5) * 100) / 10) * 10}%`;
         }
 
-        //Sorting products
-        $rootScope.sortColumn = "-rating";
-    
-        $rootScope.sortData = function (sortBy) {
-            $rootScope.sortColumn = sortBy;
-        }
+       
 
+        $rootScope.rowLimit = {
+            "type": "select", 
+            "name": "rowLimit",
+            "value": "10", 
+            "values": [ "2", "5", "10", "15", "20", "50", "100"] 
+        };
 
+        $rootScope.sortProducts = {
+            "type": "select", 
+            "name": "sortProducts",
+            "value": "rating", 
+            "values": [ "name", "price", "rating"] 
+        };
 
 
         $rootScope.userComponent = "components/login.component.html"
         $rootScope.filterComponent = "components/filter.component.html"
         $rootScope.productComponent = "components/gridview.component.html"
+        $rootScope.cartComponent = "components/cart.component.html"
 
-        $rootScope.changeProductComponent = function(component) {
+        $rootScope.changeProductComponent = function(component, value) {
             $rootScope.productComponent = "components/" + component;
+            $rootScope.cardActive = value;
         }
 
         $rootScope.changeUserComponent = function(component) {         
             $rootScope.userComponent = "components/" + component;
         }
 
+
+        
+        vm.login = login;
+
+        function login() {
+            console.log("login start ok");
+            vm.dataLoading = true;
+
+            authService.Login(vm.email, vm.password) 
+                .then(function (res) {
+                   
+                    if(res.success) {
+                        authService.SetCredentials(res.id, res.token);
+                        $location.path("/home");
+                    } else {
+                        dialogService.Error(res.message);
+                        vm.dataLoading = false;
+                    }
+                })               
+        }
+
+        function initController() {
+            authService.ClearCredentials();
+        }
+
+        vm.register = function () {
+            vm.dataLoading = true;
+            userService.Create(vm.user)
+                .then(function (res) {
+                    if(res.success) {
+                        dialogService.Success("Registration was successful", true);
+                        $location.path("/login");
+                    } else {
+                        dialogService.Error(res.message);
+                        vm.dataLoading = false;
+                    }
+                })
+        }
+
     })
+    
 
 
 

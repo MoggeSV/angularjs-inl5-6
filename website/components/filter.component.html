@@ -4,25 +4,30 @@
                 <div class="row justify-content-between">
                     <div class="row">
                         <div ng-class="{'gridButtonActive': cardActive, 'gridButton': !cardActive }">
-                            <button class="btn btn-primary"><i class="fas fa-th" ng-click="changeProductComponent('gridview.component.html')"></i></button>
+                            <button class="btn"><i class="fas fa-th" ng-click="changeProductComponent('gridview.component.html', true)"></i></button>
                         </div>
                         <div ng-class="{'gridButton': cardActive, 'gridButtonActive': !cardActive }">
-                            <button class="btn btn-primary"><i class="fas fa-bars" ng-click="changeProductComponent('listview.component.html')"></i></button>
+                            <button class="btn"><i class="fas fa-bars" ng-click="changeProductComponent('listview.component.html', false)"></i></button>
                         </div>
                     </div>
 
+                    <span class="mt-3">
+                            <form class="form-inline">
+                            <label class="col-form-label col-form-label-sm my-1 mr-2" for="rowLimit">Products displayed per page</label>
+                            <select class="custom-select custom-select-sm sortButton" id="rowLimit" ng-model="rowLimit.value" ng-options="v for v in rowLimit.values"></select>
                     
+                            <label class="col-form-label col-form-label-sm my-1 ml-4 mr-2" for="sortProducts">Sort by</label>
+                            <select class="custom-select custom-select-sm sortButton" id="sortProducts" ng-model="sortProducts.value" ng-options="v for v in sortProducts.values"></select>
+                            </form>
+                        </span>
+                   
+
                     
-                    <select name="rowLimit" class="sortButton p-2" ng-model="rowLimit">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                    </select>
+                   
 
 
 
-                    <div class="dropdown col-md-2 dropdownButton">
+                    <!-- <div class="dropdown col-md-2 dropdownButton">
                         <button class="btn sortButton" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Sort By <i class="fas fa-angle-down"></i>
@@ -32,11 +37,11 @@
                             <option class="dropdown-item" ng-click="sortData('+name')">Product (A-Z)</option>
                             <option class="dropdown-item" ng-click="sortData('-name')">Product (Z-A)</option>
                             <option class="dropdown-item" ng-click="sortData('+price')">Price (lowest - highest)</option>
-                            <option class="dropdown-item" ng-click="sortData('-price')">Price (highest - lowest)</option>
+                            <option class="dropdown-item" ng-cd..click="sortData('-price')">Price (highest - lowest)</option>
                             <option class="dropdown-item" ng-click="sortData('+rating')">Rating (lowest - highest)</option>
                             <option class="dropdown-item" ng-click="sortData('-rating')">Rating (highest - lowest)</option>
                         </div>
-                    </div>
+                    </div> -->
 
 
 

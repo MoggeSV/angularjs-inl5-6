@@ -1,8 +1,6 @@
-gridview
-
 <div>
     <div class="row">
-        <div class="card m-3 card-size col-md-4 shadow" data-ng-repeat="product in products | filter: searchText | orderBy: sortColumn | limitTo: rowLimit">
+        <div class="card m-3 card-size col-md-4 shadow" data-ng-repeat="product in products | filter: searchText | orderBy: sortProducts.value | limitTo: rowLimit.value">
             <img ng-src="{{product.image}}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title card-title-size">{{ product.name }}</h5>

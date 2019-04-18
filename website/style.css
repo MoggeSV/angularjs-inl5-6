@@ -23,6 +23,17 @@ body {
     text-decoration: none;
 }
 
+.shoppingBasket{
+    color: #ffffff;
+    font-size: 1.2em;
+    position: relative;
+    bottom: 10px;
+}
+
+.shoppingBasket:hover{
+    color: #ff8155;
+}
+
 .topmenuContainer {
     margin: 0 5%;
 }
@@ -109,10 +120,19 @@ body {
     letter-spacing: 1px;
 }
 
-.menuOptions a {
+.menuOptions a, .menuOptions button {
     color: #000000;
     font-size: 16pt;
 }
+
+.menuOptions button {
+    margin-bottom: 7px;
+}
+
+.menuOptions button:hover {
+    text-decoration: underline;
+}
+
 
 #bannerLinks {
     display: flex;
@@ -191,6 +211,11 @@ height: 80%;
 .gridButton i {
     font-size: 30px;
     color: #999ea5;
+}
+
+.gridButtonActive i{
+    font-size: 30px;
+    color: #ffffff;
 }
 
 .gridButtonActive {

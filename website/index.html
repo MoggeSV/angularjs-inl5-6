@@ -54,6 +54,7 @@
                     </div>
                     <div id="faq" class="col-md-1"><a href="#" class="socialMediaButtons">FAQ</a></div>
                     <div id="terms" class="col-md-7"><a href="#" class="socialMediaButtons">TERMS</a></div>
+                    <div ng-include="cartComponent"></div>
                     <div id="emailLink" class="col-md-1">
                         <a href="mailto:info@webmail.com" class="socialMediaButtons"><i class="far fa-envelope"><span
                                     class="pl-2">info@webmail.com</span></i></a>
@@ -93,13 +94,14 @@
                         <a href="#" class="sLink">Pages</a>
                         <a href="#" class="sLink">News</a>
                         <a href="#" class="sLink">Contact</a>
-                        <button type="button" class="btn btn-link sLink" data-toggle="modal" data-target=".bd-example-modal-lg">Login</button>
+                        <button type="button" class="btn sLink modalButton" data-toggle="modal" data-target=".bd-example-modal-lg">Login</button>
 
                     </div>
 
                     <div class="quote col-md-2">
                         GET A QUOTE
                     </div>
+                    
                 </div>
 
             </div>
@@ -289,6 +291,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-cookies.min.js"></script>
+    
     <script src="app.js"></script>
 
     <script src="services/auth.service.js"></script>
