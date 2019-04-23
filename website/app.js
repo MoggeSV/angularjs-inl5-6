@@ -22,7 +22,7 @@ var app = angular
         })
 
         .when("/mypage", {
-            controller: "homeController",
+            controller: "dashboardController",
             templateUrl: "partials/mypage/mypage.view.html",
             controllerAs: "vm"
         })
@@ -31,66 +31,39 @@ var app = angular
     
     })
 
-    .controller("homeController", function(userService, $rootScope, $http, $location, authService, dialogService) {
+    .controller("homeController", function(userService, $rootScope, $http, $location, authService, dialogService, $cookies) {
 
-        var vm = this;
-        vm.user = null;
-        vm.allUsers = [];
+        
 
         $rootScope.cart = [];
         $rootScope.emptycart = "";
 
-        //var currentUser = [];
+        hasCookies();
 
-        /* function login() {
-            vm.dataLoading = true;
-
-            authService.Login(vm.email, vm.password) 
-                .then(function (res) {
-                   
-                    if(res.success) {
-                        authService.SetCredentials(res.id, res.token);
-                        $location.path("/mypage");
-                    } else {
-                        dialogService.Error(res.message);
-                        vm.dataLoading = false;
-                    }
-                })               
-        } */
-
-        /* function register () {
-            vm.dataLoading = true;
-            userService.Create(vm.user)
-                .then(function (res) {
-                    if(res.success) {
-                        dialogService.Success("Registration was successful", true);
-                        $location.path("/login");
-                        
-                    } else {
-                        dialogService.Error(res.message);
-                        vm.dataLoading = false;
-                    }
-                })
-        } */
-        function getCurrentUser(id) {
-            userService.GetUser(id)
-                .then(function (user) {
-                    vm.user = user;         
-                })      
+        setCookie = function (cart) {
+            var expiredDate = new Date();
+            expiredDate.setDate(expiredDate.getDate() + 7);
+            $cookies.putObject('cart', cart, {'expires': expiredDate});
         }
 
-        function getAllUsers() {
-            userService.GetUsers()
-                .then(function (users) {
-                    vm.allUsers = users
-                })
+        function hasCookies() {
+            if ($cookies.getObject('cart')) {
+                $rootScope.cart = $cookies.getObject('cart');
+            }
         }
 
-        function deleteUser(id) {
-            userService.Delete(id)
-                .then(function () {
-                    getAllUsers();
-                })
+    
+        $rootScope.logout = function () {
+            $rootScope.globals.currentUser = null;
+            $location.path("/");
+        }
+
+        $rootScope.loginCheck = function () {
+            if ($rootScope.globals.currentUser) {
+                return true;
+            }else{
+                return false;
+            }
         }
 
         // shopping cart
@@ -120,11 +93,13 @@ var app = angular
             else {
                 $rootScope.cart.push(angular.copy(product));
             }
+            setCookie($rootScope.cart);
         }
 
         $rootScope.removeItem = function(product) {
             var index = $rootScope.cart.indexOf(product);
             $rootScope.cart.splice(index, 1);
+            setCookie($rootScope.cart);
         }
 
         $rootScope.getProductCost = function(product) {
@@ -163,22 +138,7 @@ var app = angular
 
             return quantity;
         }
-
-        function initController() {
-            getCurrentUser($rootScope.globals.currentUser.id);
-            getAllUsers();
-        }; 
-
-        initController();
         
-
-       /*  (function initController() {
-            authService.ClearCredentials();
-        })(); */
-
-        // vm.login = login;
-        //vm.register = register;
-        vm.deleteUser = deleteUser;
 
         $http.get("http://localhost:3001/api/products").then((res) => $rootScope.products = res.data);
 
@@ -269,6 +229,47 @@ var app = angular
         }
 
     })
+
+    .controller("dashboardController", function ($rootScope, userService, $location) {
+        if ( $rootScope.globals.currentUser !== undefined) {
+            var vm = this;
+        vm.user = null;
+        vm.allUsers = [];
+        vm.deleteUser = deleteUser;
+
+        function getCurrentUser(id) {
+            userService.GetUser(id)
+                .then(function (user) {
+                    vm.user = user;         
+                })      
+        }
+
+        function getAllUsers() {
+            userService.GetUsers()
+                .then(function (users) {
+                    vm.allUsers = users
+                })
+        }
+
+        function deleteUser(id) {
+            userService.Delete(id)
+                .then(function () {
+                    getAllUsers();
+                })
+        }
+
+        function initController() {
+            getCurrentUser($rootScope.globals.currentUser.id);
+            getAllUsers();
+        }; 
+
+        initController();
+
+
+        } else{
+            $location.path("/login");
+        }
+    })
     
 
 
@@ -279,16 +280,17 @@ var app = angular
 
 
 
-/*     .run(function($rootScope, $location, $cookies, $http) {
+    .run(function($rootScope, $location, $cookies, $http) {
+
   
         $rootScope.globals = $cookies.getObject("globals") || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common["Authorization"] = 'Bearer ' +  $rootScope.globals.currentUser.token;
-           
+            console.log("inloggad"+ $cookies.getObject('globals'));
         }
 
         $rootScope.$on("$locationChangeStart", function(event, next, current) {
-            var restrictedPage = $.inArray($location.path(), ["/login", "/register"]) === -1;
+            var restrictedPage = $.inArray($location.path(), ["/login", "/register", "/"]) === -1;
             
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
@@ -296,34 +298,5 @@ var app = angular
             }
         })      
     }) 
-*/
-    
 
-
-    // .controller("angularController", function($rootScope, $http) {
-        
-    //     //Setting products
-    //     $http.get("http://localhost:5000/api/products")
-    //         .then((res) => $rootScope.products = res.data)
-        
-
-    //     //Sets row limits
-    //     $rootScope.rowLimit = 5;
-
-    //     //Sets grid or list active button
-    //     $rootScope.cardActive = true;
-
-    //     //Sets stars
-    //     $rootScope.rating = function(input) {
-            
-    //         return `${Math.round(((input / 5) * 100) / 10) * 10}%`;
-    //     }
-
-    //     //Sorting products
-    //     $rootScope.sortColumn = "-rating";
-    
-    //     $rootScope.sortData = function (sortBy) {
-    //         $rootScope.sortColumn = sortBy;
-    //     }
-    // })
     

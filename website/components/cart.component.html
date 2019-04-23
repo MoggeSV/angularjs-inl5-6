@@ -29,6 +29,15 @@
                         <button type="button" class="btn btn-link" ng-click="removeItem()"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <a type="button" href="#!login" ng-hide="$root.loginCheck()" class="btn btn-primary">Login</a>
+                        <a type="button" href="#!register" ng-hide="$root.loginCheck()" class="btn btn-secondary">Register</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button ng-hide="!$root.loginCheck()" type="button" class="btn btn-success">Checkout</button></td>
+                </tr>
             </table>
         </div>
       </div>

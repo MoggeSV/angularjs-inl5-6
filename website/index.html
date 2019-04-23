@@ -71,13 +71,15 @@
                     </div>
 
                     <div class="menuOptions col-md-5 pt-3 pl-5 mt-1">
-                        <a href="#" class="sLink">Home</a>
+                        <a href="#!/" class="sLink">Home</a>
                         <a href="#" class="sLink">About</a>
                         <a href="#" class="sLink">Services</a>
                         <a href="#" class="sLink">Pages</a>
                         <a href="#" class="sLink">News</a>
                         <a href="#" class="sLink">Contact</a>
-                        <a href="#!login" class="sLink">Login</a>
+                        <a href="#!login" ng-hide="$root.loginCheck()" class="sLink">Login</a>
+                        <a href="#!/" ng-click="$root.logout()" ng-hide="!$root.loginCheck()" class="sLink">Logout</a>
+                        
                        
                     </div>
 
