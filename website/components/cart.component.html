@@ -3,8 +3,8 @@
           <i class="fas fa-shopping-basket"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-            
-            <table class="" style="width:500px;">
+            <div class="container">
+            <table style="width:500px;">
                 <tr ng-repeat="product in cart">
                     
                     <td>
@@ -31,6 +31,13 @@
                 </tr>
                 <tr>
                     <td>
+                       <span>Total: {{$root.getTotal() | currency}}</span> 
+                       <p>{{emptycart}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
                         <a type="button" href="#!login" ng-hide="$root.loginCheck()" class="btn btn-primary">Login</a>
                         <a type="button" href="#!register" ng-hide="$root.loginCheck()" class="btn btn-secondary">Register</a>
                     </td>
@@ -39,5 +46,6 @@
                     <td><button ng-hide="!$root.loginCheck()" type="button" class="btn btn-success">Checkout</button></td>
                 </tr>
             </table>
+        </div>
         </div>
       </div>

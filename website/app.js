@@ -110,9 +110,11 @@ var app = angular
             return product.quantity;
         }
 
+        
         $rootScope.getTotal = function() {
             var total = _.reduce($rootScope.cart, function(sum, product) {
                 return sum + $rootScope.getProductCost(product);
+                
             }, 0);
 
             if($rootScope.cart.length === 0) {
@@ -131,6 +133,7 @@ var app = angular
  
             if(quantity === 0) {
                 $rootScope.badgeColor = "badge-secondary"
+                
             } else {
                 $rootScope.badgeColor = "badge-danger"
             }
@@ -138,6 +141,7 @@ var app = angular
 
             return quantity;
         }
+        
         
 
         $http.get("http://localhost:3001/api/products").then((res) => $rootScope.products = res.data);
